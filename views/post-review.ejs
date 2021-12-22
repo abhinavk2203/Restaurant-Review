@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title><%= title %></title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico"/>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/style.css" rel="stylesheet"/>
+
+    <!--   Recapcha API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        .content {
+            min-height: 200px !important;
+        }
+
+    </style>
+</head>
+<body id="page-top">
+
+<%- include('partials/navbar.ejs', {transparent:true}) %>
+<div class="container mt-5 justify-content-center" style="height: 70%; width: 100%;">
+    <div class="card">
+        <h5 class="card-header text-center">Post a review for : <%= current.title %></h5>
+        <div class="card-body">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" placeholder="Your name">
+                </div>
+                <div class="mb-3">
+                    <label for="review-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="review-title" name="title" placeholder="Review Title">
+                </div>
+                <div class="mb-3">
+                    <label for="review-content" class="form-label">Review Content</label>
+                    <textarea type="text" class="form-control content" id="review-content" name="content"
+                              placeholder="Type your experience here"></textarea>
+                </div>
+
+                <div class="g-recaptcha" data-sitekey="6Ldx4LodAAAAAOA6f4vX55BDIPnk9UPrpVAc5GUj"></div>
+                <br/>
+
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>
+
+
+<!-- Font Awesome icons (free version)-->
+<script src="/js/fontawesome.js"></script>
+
+<!--Bootstrap bundle-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

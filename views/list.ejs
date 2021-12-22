@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico"/>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/style.css" rel="stylesheet"/>
+
+    <link href="css/list.css" rel="stylesheet"/>
+</head>
+<body>
+
+<%- include('partials/navbar.ejs') %>
+
+<div class="container">
+    <div class="row pt-5 m-auto">
+
+        <% for(var i = 0; i < restaurants.length; i++) { %>
+            <div class="col-md-6 col-lg-4 pb-3">
+                <!-- Copy the content below until next comment -->
+                <div class="card card-custom bg-white border-white border-0">
+                    <div class="card-custom-img" style="background-image: url(<%= restaurants[i].image_url %>);"></div>
+                    <div class="card-body" style="overflow-y: auto">
+                        <h4 class="card-title"><%= restaurants[i].title %></h4>
+                        <p class="card-text"><%= restaurants[i].description %>
+                    </div>
+                    <div class="card-footer" style="background: inherit; border-color: inherit;">
+                        <a href="/restaurants/<%= restaurants[i]._id %>/reviews"
+                           class="btn btn-lg text-yellow btn-dark">View Reviews
+                        </a>
+                        <a href="/restaurants/<%= restaurants[i]._id %>/reviews/create"
+                           class="btn btn-lg btn-outline-dark ">Give
+                            Review
+                            <Review></Review>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        <% } %>
+    </div>
+</div>
+
+</div>
+</div>
+<%- include('partials/footer.ejs') %>
+
+<!--Custom Javascript-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+<!-- Font Awesome icons (free version)-->
+<script src="/js/fontawesome.js"></script>
+
+</body>
+
+</html>

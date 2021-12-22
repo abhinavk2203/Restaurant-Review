@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title><%= title %></title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico"/>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/style.css" rel="stylesheet"/>
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        .ph-card-header {
+            color: white !important;
+            background-color: maroon !important;
+        }
+    </style>
+</head>
+<body id="page-top">
+
+<%- include('partials/navbar.ejs', {transparent:true}) %>
+<div class="container mt-5 text-start justify-content-center" style="height: 60%; width: 100%;">
+    <h1 class="mb-4"><%= current.title %> Reviews</h1>
+
+    <% for (var i = 0; i < reviews.length; i++) { %>
+        <div class="card bg-light mb-3">
+            <div class="card-header">@<%= reviews[i].author_name.toLowerCase() %></div>
+            <div class="card-body">
+                <h5 class="card-title"><%= reviews[i].title %></h5>
+                <p class="card-text"><%= reviews[i].content %></p>
+            </div>
+        </div>
+    <% } %>
+</div>
+<%- include('partials/footer.ejs') %>
+
+
+<!-- Font Awesome icons (free version)-->
+<script src="/js/fontawesome.js"></script>
+
+<!--Bootstrap bundle-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Restaurant Review System</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico"/>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+
+<body id="page-top">
+
+<%- include('partials/navbar.ejs', {transparent:true}) %>
+
+<!-- Head Banner-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading heading text-uppercase">Restaurant Review System</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="/restaurants">View Restaurants</a>
+    </div>
+</header>
+
+<!-- Restaurant Grid-->
+<section class="page-section bg-light" id="restaurants">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Restaurants</h2>
+        </div>
+        <div class="row">
+            <% for(var i = 0; i < restaurants.length; i++) { %>
+                <div class="col-lg-4 col-sm-6 mb-4 ">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item justify-content-center text-center">
+                        <a class="portfolio-link" href="/api/restaurants/<%= restaurants[i].id %>">
+                            <div class="portfolio-hover">
+                            </div>
+                            <img class="" height="300" width="300" src="<%= restaurants[i].image_url %>" alt="..."/>
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Threads</div>
+                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<!-- About me -->
+<section class="page-section bg-light" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">About Me</h2>
+            <!--                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
+        </div>
+        <div class="col-lg-14">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="/img/PASSPORT.jpeg" alt="..."/>
+                <h4>Abhinav Kumar Singh</h4>
+                <p class="text-muted">Full Stack Web Developer</p>
+                <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/Abhinavkumar220" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/abhinav-kumar-singh-7843b8172" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Contact Us</h2>
+            <!-- <h3 class="section-subheading text-muted">Got queries!? Hit us up.</h3> -->
+            <h4 style="color: blanchedalmond;">Got queries!? Hit us up.</h4>
+        </div>
+        <form id="contactForm" method="POST">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *"/>
+                    </div>
+                    <div class="form-group mb-md-0">
+                        <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <textarea class="form-control" id="message" name="message"
+                                  placeholder="Your Message *"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-center">
+                <button class="btn btn-primary btn-xl text-uppercase"
+                        id="submitButton" type="submit">Send Message
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>
+
+
+<!-- Font Awesome icons (free version)-->
+<script src="/js/fontawesome.js"></script>
+
+<!--Bootstrap bundle-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
